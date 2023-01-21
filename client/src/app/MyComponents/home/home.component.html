@@ -1,0 +1,45 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-4 pb-2">
+      <div class="col-12">
+        <input
+          name="csvfile"
+          size="60"
+          type="file"
+          (change)="onFileChanged($event)"
+        />
+        <div>
+          <button class="fileupbtn btn btn-sm btn-primary mt-1" (click)="upload()">Upload</button>
+        </div>
+      </div>
+
+      <div class="col-12 view">
+        <li class="mt-4" *ngFor="let item of allFiles">
+          {{ item }}
+          <button
+            (click)="viewFile({item})"
+            class="ms-3 btn btn-sm btn-primary"
+          >
+            View
+          </button>
+        </li>
+      </div>
+    
+    </div>
+    
+
+    <div class="col-lg-8 col-sm-12 viewbox">
+      <table class="table table-light">
+        <tbody>
+          <tr *ngFor="let item of jsonData">
+            <th scope="row">{{ item[0] }}</th>
+            <td>{{ item[1] }}</td>
+            <td>{{ item[2] }}</td>
+            <td>{{ item[3] }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <ul></ul>
+</div>
